@@ -5,16 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Button Click Example</title>
   <script>
-     document.requestStorageAccessFor('https://rkjalan.github.io')
-     .then(() => {
-	 const iframe = document.createElement("iframe");
-	    iframe.src = "https://rkjalan.github.io/rwstesting/index.html?setCookie=1";
-	    iframe.style.width = "200px";
-	    iframe.style.height = "100px";
-	    iframe.style.border = "1px solid #ccc"; // Set border or other styles
-	    document.getElementById("iframeContainer").appendChild(iframe);
-     })
-     .catch((e) => { console.log("activation not granted on click", e) });
+	  window.onload = () => {
+	     document.requestStorageAccessFor('https://rkjalan.github.io')
+	     .then(() => {
+		 const iframe = document.createElement("iframe");
+		    iframe.src = "https://rkjalan.github.io/rwstesting/index.html?setCookie=1";
+		    iframe.style.width = "200px";
+		    iframe.style.height = "100px";
+		    iframe.style.border = "1px solid #ccc"; // Set border or other styles
+		    document.getElementById("iframeContainer").appendChild(iframe);
+	     })
+	     .catch((e) => { console.log("activation not granted on click", e) });
+	  }
   </script>
 </head>
 
