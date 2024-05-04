@@ -7,7 +7,7 @@
   <script>
     document.requestStorageAccessFor('https://rws-member2.example')
      .then(() => { console.log("activation granted on load") })
-     .catch((e) => { console.log("activation not granted on load, e) });
+     .catch((e) => { console.log("activation not granted on load", e) });
   </script>
 </head>
 
