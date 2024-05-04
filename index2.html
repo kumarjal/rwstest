@@ -8,7 +8,7 @@
 	  window.onload = () => {
 	     document.requestStorageAccessFor('https://rkjalan.github.io')
 	     .then(() => {
-		 const iframe = document.createElement("iframe");
+		    const iframe = document.createElement("iframe");
 		    iframe.src = "https://rkjalan.github.io/rwstesting/index.html?setCookie=1";
 		    iframe.style.width = "200px";
 		    iframe.style.height = "100px";
@@ -33,7 +33,7 @@
 	cButton.onclick = function() {
 	    document.requestStorageAccessFor('https://rkjalan.github.io')
 	     .then(() => {
-		    iframe.src = "https://rkjalan.github.io/rwstesting/index.html?setCookie=1";
+		    const iframe = document.createElement("iframe");
 	            iframe.src = "https://rkjalan.github.io/rwstesting/index.html?setCookie=1";
 	            iframe.style.width = "200px";
 	            iframe.style.height = "100px";
