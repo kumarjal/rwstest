@@ -6,7 +6,8 @@
     <title>Button Click Example</title>
   <script>
 	  window.onload = () => {
-	     document.requestStorageAccessFor('https://rkjalan.github.io')
+	     //document.requestStorageAccessFor('https://rkjalan.github.io')
+	  document.requestStorageAccess()
 	     .then(() => {
 		 const iframe = document.createElement("iframe");
 		    iframe.src = "https://rkjalan.github.io/rwstesting/index.html?setCookie=1";
@@ -33,7 +34,7 @@
 	cButton.onclick = function() {
 	    document.requestStorageAccessFor('https://rkjalan.github.io')
 	     .then(() => {
-		 const iframe = document.createElement("iframe");
+		 document.requestStorageAccess()
 	            iframe.src = "https://rkjalan.github.io/rwstesting/index.html?setCookie=1";
 	            iframe.style.width = "200px";
 	            iframe.style.height = "100px";
