@@ -8,15 +8,15 @@
       window.onload = () => {
           navigator.permissions.query({ name:'top-level-storage-access', requestedOrigin: 'https://rkjalan.github.io' })
               .then(res => {
+                  console.log("Permission level", res);
                   if (res.state === 'granted') {
-                      // Permission has already been granted, can request storage access without any user gesture
+                      console.log("Permission has already been granted, can request storage access without any user gesture");
                       rSAFor();
                   } else if (res.state === 'prompt') {
-                      // Requesting storage access requires user gesture
+                      console.log("Requesting storage access requires user gesture");
                       const btn = document.createElement("button");
                       btn.textContent = "Grant access";
                       btn.addEventListener('click', () => {
-                          // Request storage access
                           rSAFor();
                       });
                       document.body.appendChild(btn);
