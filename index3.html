@@ -5,6 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Button Click Example</title>
   <script>
+      (function () {
+          if (!console) {
+              console = {};
+          }
+          var old = console.log;
+          var logger = document.getElementById('log');
+          console.log = function (message) {
+              if (typeof message == 'object') {
+                  logger.innerHTML += (JSON && JSON.stringify ? JSON.stringify(message) : String(message)) + '<br />';
+              } else {
+                  logger.innerHTML += message + '<br />';
+              }
+          }
+      })();
+
       window.onload = () => {
           navigator.permissions.query({ name:'top-level-storage-access', requestedOrigin: 'https://rkjalan.github.io' })
               .then(res => {
@@ -27,7 +42,7 @@
               if ('requestStorageAccessFor' in document) {
                   document.requestStorageAccessFor('https://rkjalan.github.io').then(
                       (res) => {
-                          console.log("Permission request result => ", res);
+                          console.log("Permission request result success!");
                           const iframe = document.createElement("iframe");
                           iframe.src = "https://rkjalan.github.io/rwstesting/frame.html?setCookie=1";
                           iframe.style.width = "200px";
@@ -38,11 +53,14 @@
                       (err) => {
                           console.log("activation not granted on click => ", err)
                       }
-                  ).catch((e) => { console.log("Activation resulted in error", e) });
+                  ).catch((e) => { console.log("Activation resulted in error => ", e) });
               }
           }
       }
   </script>
 </head>
-<body><div id="iframeContainer"></div></body>
+<body>
+<div id="iframeContainer"></div>
+<div id="log"></div>
+</body>
 </html>
