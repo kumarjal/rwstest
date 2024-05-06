@@ -5,22 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Button Click Example</title>
   <script>
-      (function () {
-          if (!console) {
-              console = {};
-          }
-          var old = console.log;
-          var logger = document.getElementById('log');
-          console.log = function (message) {
-              if (typeof message == 'object') {
-                  logger.innerHTML += (JSON && JSON.stringify ? JSON.stringify(message) : String(message)) + '<br />';
-              } else {
-                  logger.innerHTML += message + '<br />';
-              }
-          }
-      })();
-
       window.onload = () => {
+          (function () {
+              if (!console) {
+                  console = {};
+              }
+              var old = console.log;
+              var logger = document.getElementById('log');
+              console.log = function (message) {
+                  if (typeof message == 'object') {
+                      logger.innerHTML += (JSON && JSON.stringify ? JSON.stringify(message) : String(message)) + '<br />';
+                  } else {
+                      logger.innerHTML += message + '<br />';
+                  }
+              }
+          })();
+
           navigator.permissions.query({ name:'top-level-storage-access', requestedOrigin: 'https://rkjalan.github.io' })
               .then(res => {
                   console.log("Permission level => ", res);
@@ -45,8 +45,8 @@
                           console.log("Permission request result success!");
                           const iframe = document.createElement("iframe");
                           iframe.src = "https://rkjalan.github.io/rwstesting/frame.html?setCookie=1";
-                          iframe.style.width = "200px";
-                          iframe.style.height = "100px";
+                          iframe.style.width = "500px";
+                          iframe.style.height = "300px";
                           iframe.style.border = "1px solid #ccc"; // Set border or other styles
                           document.getElementById("iframeContainer").appendChild(iframe);
                       },
