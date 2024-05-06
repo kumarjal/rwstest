@@ -23,7 +23,7 @@
 
           navigator.permissions.query({ name:'top-level-storage-access', requestedOrigin: 'https://rkjalan.github.io' })
               .then(res => {
-                  console.log("Permission level => ", res);
+                  console.log("Permission level => ", res.state);
                   if (res.state === 'granted') {
                       console.log("Permission has already been granted, can request storage access without any user gesture");
                       rSAFor();
