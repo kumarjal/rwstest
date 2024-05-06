@@ -21,11 +21,11 @@
                       });
                       document.body.appendChild(btn);
                   }
-              }).catch((e) => { console.log("Failed to read permission => ", e) });;
+              }).catch((e) => { console.log("Failed to read permission => ", e) });
 
           function rSAFor() {
               if ('requestStorageAccessFor' in document) {
-                  document.requestStorageAccessFor().then(
+                  document.requestStorageAccessFor('https://rkjalan.github.io').then(
                       (res) => {
                           const iframe = document.createElement("iframe");
                           iframe.src = "https://rkjalan.github.io/rwstesting/frame.html?setCookie=1";
