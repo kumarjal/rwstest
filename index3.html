@@ -49,6 +49,13 @@
                           iframe.style.height = "300px";
                           iframe.style.border = "1px solid #ccc"; // Set border or other styles
                           document.getElementById("iframeContainer").appendChild(iframe);
+
+                          const btn = document.createElement("button");
+                          btn.textContent = "Launch Child Page";
+                          btn.addEventListener('click', () => {
+                              window.open('https://rkjalan.github.io/rwstesting/frame.html')
+                          });
+                          document.body.appendChild(btn);
                       },
                       (err) => {
                           console.log("activation not granted on click => ", err)
